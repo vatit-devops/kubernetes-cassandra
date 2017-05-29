@@ -1,0 +1,11 @@
+# Storage Class Example if you are using AWS
+kind: StorageClass
+apiVersion: storage.k8s.io/v1beta1
+metadata:
+  namespace: cassandra-dev
+  name: cassandra-persistence-eu-west-1a-gp2
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2
+  zone: eu-west-1a
+  encrypted: "true"

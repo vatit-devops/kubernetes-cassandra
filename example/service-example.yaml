@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: cassandra-dev
+  labels:
+    name: cassandra-dev
+    app: cassandra-dev
+  name: cassandra-dev
+spec:
+  ports:
+    - port: 9042
+      name: cql
+      targetPort: 9042
+  # Use Node Port if you dont want a Load Balancer
+  type: LoadBalancer
+  selector:
+    name: cassandra-dev

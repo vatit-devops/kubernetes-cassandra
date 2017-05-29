@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: cassandra-dev
+  labels:
+    name: cassandra-headless-dev
+    app: cassandra-dev
+  name: cassandra-headless-dev
+spec:
+  clusterIP: None
+  ports:
+    - port: 9042
+      name: cql
+      targetPort: 9042
+  selector:
+    name: cassandra-dev
